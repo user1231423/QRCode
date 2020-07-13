@@ -20,3 +20,4 @@ C:\Users\JEVG\source\repos\TestingQR\TestingQR\bin\Debug\netcoreapp3.1\QRCoder.d
 C:\Users\JEVG\source\repos\TestingQR\TestingQR\obj\Debug\netcoreapp3.1\TestingQR.csproj.CoreCompileInputs.cache
 C:\Users\JEVG\source\repos\TestingQR\TestingQR\obj\Debug\netcoreapp3.1\TestingQR.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\JEVG\source\repos\TestingQR\TestingQR\obj\Debug\netcoreapp3.1\TestingQR.csproj.CopyComplete
+C:\Users\JEVG\source\repos\TestingQR\TestingQR\bin\Debug\netcoreapp3.1\TestingQR.Views.dll

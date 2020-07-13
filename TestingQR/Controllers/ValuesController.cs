@@ -15,6 +15,13 @@ namespace TestingQR.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
+        private readonly IEmailSender _emailSender;
+
+        public ValuesController(IEmailSender emailSender)
+        {
+            _emailSender = emailSender;
+        }
+
         [HttpPost]
         public ActionResult GenerateQRCode(QRCodeGenerate qRCodeGenerate)
         {
@@ -31,6 +38,23 @@ namespace TestingQR.Controllers
             {
                 image.Save(stream, System.Drawing.Imaging.ImageFormat.Png);
                 return stream.ToArray();
+            }
+        }
+
+        [HttpPost("Send")]
+        public ActionResult SendEmail(EmailModel emailModel)
+        {
+            try
+            {
+                string text = System.IO.File.ReadAllText(@"C:/Users/JEVG/source/repos/TestingQR/TestingQR/Models/Mail.html");
+                var x = text.Replace("{{base64}}", emailModel.Img);
+                emailModel.Message = x;
+                _emailSender.SendEmail(emailModel.Destination, emailModel.Subject, emailModel.Message);
+                return Ok(x);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
             }
         }
     }
